@@ -2,7 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.set("n", "<C-e>", ":Neotree<CR>", {})
+-- vim.keymap.set("n", "<C-e>", ":Neotree<CR>", {})
+vim.keymap.set("n", "<C-q>", "<cmd>bp<cr><cmd>bd#<cr>", { desc = "Delete buffer" })
 
 -- TMUX <-> VIM NAVIGATION
 local tmux = require("tmux")
@@ -52,6 +53,7 @@ local function custom_send_lines_to_terminal(selection_type, trim_spaces, cmd_da
   end
 
   local startingSpaces = nil
+  -- local newLines = {}
   for _, line in ipairs(lines) do
     local l = trim_spaces and line:gsub("^%s+", ""):gsub("%s+$", "") or line
     -- FIX FOR PYTHON INDENT TO WORK CORRECTLY
@@ -60,10 +62,12 @@ local function custom_send_lines_to_terminal(selection_type, trim_spaces, cmd_da
         _, startingSpaces = string.find(l, "^ *")
       end
       local l_norm = string.gsub(l, " ", "", startingSpaces)
+      -- table.insert(newLines, l_norm)
       toggleterm.exec(l_norm, id)
     end
     -- print(l)
   end
+  -- toggleterm.exec("%cpaste\n" .. table.concat(newLines, "\n") .. "\n--\n")
   toggleterm.exec("", id)
 
   -- Jump back with the cursor where we were at the beginning of the selection
