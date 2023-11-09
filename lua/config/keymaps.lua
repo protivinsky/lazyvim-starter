@@ -4,6 +4,8 @@
 
 -- vim.keymap.set("n", "<C-e>", ":Neotree<CR>", {})
 vim.keymap.set("n", "<C-q>", "<cmd>bp<cr><cmd>bd#<cr>", { desc = "Delete buffer" })
+vim.keymap.set("n", "<leader>we", "<cmd>tab split<cr>", { desc = "Maximize window" })
+vim.keymap.set("n", "<leader>wq", "<cmd>q<cr>", { desc = "Close window" })
 
 -- TMUX <-> VIM NAVIGATION
 local tmux = require("tmux")

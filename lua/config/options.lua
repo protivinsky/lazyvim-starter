@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.opt.scrolloff = 20
+vim.opt.wrap = true
