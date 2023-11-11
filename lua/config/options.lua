@@ -4,3 +4,6 @@
 
 vim.opt.scrolloff = 20
 vim.opt.wrap = true
+vim.opt.undofile = true
+vim.opt.autowriteall = true
+vim.opt.swapfile = false

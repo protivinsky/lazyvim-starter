@@ -4,8 +4,11 @@
 
 -- vim.keymap.set("n", "<C-e>", ":Neotree<CR>", {})
 vim.keymap.set("n", "<C-q>", "<cmd>bp<cr><cmd>bd#<cr>", { desc = "Delete buffer" })
+
+-- WINDOWS
 vim.keymap.set("n", "<leader>we", "<cmd>tab split<cr>", { desc = "Maximize window" })
 vim.keymap.set("n", "<leader>wq", "<cmd>q<cr>", { desc = "Close window" })
+vim.keymap.set("n", "<leader>w=", "<C-w>=", { desc = "Equally high and wide" })
 
 -- TMUX <-> VIM NAVIGATION
 local tmux = require("tmux")
@@ -81,32 +84,53 @@ vim.api.nvim_create_user_command("ToggleTermSendVisualSelectionCustom", function
   custom_send_lines_to_terminal("visual_selection", false, args)
 end, { range = true, nargs = "?" })
 
-require("which-key").register({
-  ["<leader>t"] = { name = "terminal", _ = "which_key_ignore" },
-})
+-- require("which-key").register({
+--   ["<leader>t"] = { name = "terminal", _ = "which_key_ignore" },
+-- })
 
 vim.keymap.set(
   "n",
-  "<leader>tp",
-  ":TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}python'<CR>",
+  "<leader>cp",
+  "<cmd>TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}python'<cr>",
   { desc = "Open Python terminal" }
 )
 vim.keymap.set(
   "n",
-  "<leader>ti",
-  ":TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}ipython --TerminalInteractiveShell.autoindent=False'<CR>",
+  "<leader>ci",
+  "<cmd>TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}ipython --TerminalInteractiveShell.autoindent=False'<cr>",
   { desc = "Open IPython terminal" }
 )
-vim.keymap.set("n", "<leader>tv", ":ToggleTerm direction=vertical size=120<CR>", { desc = "Open vertical terminal" })
-vim.keymap.set("n", "<leader>ts", ":ToggleTerm direction=horizontal size=40<CR>", { desc = "Open horizontal terminal" })
 vim.keymap.set(
   "n",
-  "<leader>tf",
-  ":w<CR>:9TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}python %'<CR>",
+  "<leader>ct",
+  "<cmd>ToggleTerm direction=vertical size=120<cr>",
+  { desc = "Open vertical terminal" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>cs",
+  "<cmd>ToggleTerm direction=horizontal size=40<cr>",
+  { desc = "Open horizontal terminal" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>cP",
+  "<cmd>w<cr>:9TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}python %'<cr>",
   { desc = "Save and run file in python" }
 )
-vim.keymap.set("n", "<leader>tt", ":ToggleTermSendCurrentLine<CR>j", { desc = "Send line to terminal" })
-vim.keymap.set("v", "<leader>tt", ":ToggleTermSendVisualSelectionCustom<CR>'>", { desc = "Send selection to terminal" })
-vim.keymap.set("n", "<leader>r", ":ToggleTermSendCurrentLine<CR>j", { desc = "Send line to terminal" })
-vim.keymap.set("v", "<leader>r", ":ToggleTermSendVisualSelectionCustom<CR>'>", { desc = "Send selection to terminal" })
-vim.keymap.set("n", "<leader>tq", ":TermSelect<CR>1<CR>i<C-d><C-d>", { desc = "Quit terminal" })
+vim.keymap.set("n", "<leader>cc", "<cmd>ToggleTermSendCurrentLine<cr>j", { desc = "Send line to terminal" })
+vim.keymap.set(
+  "v",
+  "<leader>cc",
+  "<cmd>ToggleTermSendVisualSelectionCustom<cr>'>",
+  { desc = "Send selection to terminal" }
+)
+vim.keymap.set("n", "<leader>r", "<cmd>ToggleTermSendCurrentLine<cr>j", { desc = "Send line to terminal" })
+vim.keymap.set(
+  "v",
+  "<leader>r",
+  "<cmd>ToggleTermSendVisualSelectionCustom<cr>'>",
+  { desc = "Send selection to terminal" }
+)
+-- vim.keymap.set("n", "<leader>tq", "<cmd>TermSelect<cr>1<cr>i<C-d><C-d>", { desc = "Quit terminal" })
