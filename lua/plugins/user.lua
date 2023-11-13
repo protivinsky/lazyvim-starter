@@ -87,15 +87,16 @@ return {
       }
 
       opts.winbar = {
-        lualine_b = opts.sections.lualine_a,
-        lualine_c = winbar_c,
-        lualine_x = winbar_x,
+        lualine_a = opts.sections.lualine_a,
+        lualine_b = winbar_c,
+        lualine_y = winbar_x,
       }
       -- opts.inactive_winbar = opts.winbar
       opts.inactive_winbar = {
-        lualine_c = opts.winbar.lualine_c,
-        lualine_x = opts.winbar.lualine_x,
+        lualine_a = opts.winbar.lualine_b,
+        lualine_y = opts.winbar.lualine_y,
       }
     end,
   },
+  { "github/copilot.vim" },
 }

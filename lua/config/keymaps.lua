@@ -10,6 +10,9 @@ vim.keymap.set("n", "<leader>we", "<cmd>tab split<cr>", { desc = "Maximize windo
 vim.keymap.set("n", "<leader>wq", "<cmd>q<cr>", { desc = "Close window" })
 vim.keymap.set("n", "<leader>w=", "<C-w>=", { desc = "Equally high and wide" })
 
+vim.keymap.set("n", "<leader>o", "o<esc>k", { desc = "Add en empty line below" })
+vim.keymap.set("n", "<leader>O", "O<esc>j", { desc = "Add en empty line above" })
+
 -- TMUX <-> VIM NAVIGATION
 local tmux = require("tmux")
 vim.keymap.set("n", "<C-k>", tmux.move_top, {})
