@@ -12,6 +12,7 @@ vim.keymap.set("n", "<leader>w=", "<C-w>=", { desc = "Equally high and wide" })
 
 vim.keymap.set("n", "<leader>o", "o<esc>k", { desc = "Add en empty line below" })
 vim.keymap.set("n", "<leader>O", "O<esc>j", { desc = "Add en empty line above" })
+vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- TMUX <-> VIM NAVIGATION
 local tmux = require("tmux")
@@ -123,17 +124,7 @@ vim.keymap.set(
   { desc = "Save and run file in python" }
 )
 vim.keymap.set("n", "<leader>cc", "<cmd>ToggleTermSendCurrentLine<cr>j", { desc = "Send line to terminal" })
-vim.keymap.set(
-  "v",
-  "<leader>cc",
-  "<cmd>ToggleTermSendVisualSelectionCustom<cr>'>",
-  { desc = "Send selection to terminal" }
-)
+vim.keymap.set("x", "<leader>cc", ":ToggleTermSendVisualSelectionCustom<CR>'>", { desc = "Send selection to terminal" })
 vim.keymap.set("n", "<leader>r", "<cmd>ToggleTermSendCurrentLine<cr>j", { desc = "Send line to terminal" })
-vim.keymap.set(
-  "v",
-  "<leader>r",
-  "<cmd>ToggleTermSendVisualSelectionCustom<cr>'>",
-  { desc = "Send selection to terminal" }
-)
+vim.keymap.set("x", "<leader>r", ":ToggleTermSendVisualSelectionCustom<CR>'>", { desc = "Send selection to terminal" })
 -- vim.keymap.set("n", "<leader>tq", "<cmd>TermSelect<cr>1<cr>i<C-d><C-d>", { desc = "Quit terminal" })
