@@ -14,6 +14,8 @@ vim.keymap.set("n", "<leader>o", "o<esc>k", { desc = "Add en empty line below" }
 vim.keymap.set("n", "<leader>O", "O<esc>j", { desc = "Add en empty line above" })
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
+vim.keymap.set("n", "<leader>cV", "<cmd>VenvSelectCurrent<cr>", { desc = "Current VirtualEnv Info" })
+
 -- TMUX <-> VIM NAVIGATION
 local tmux = require("tmux")
 vim.keymap.set("n", "<C-k>", tmux.move_top, {})
@@ -95,13 +97,15 @@ end, { range = true, nargs = "?" })
 vim.keymap.set(
   "n",
   "<leader>cp",
-  "<cmd>TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}python'<cr>",
+  -- "<cmd>TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}python'<cr>",
+  "<cmd>TermExec direction=vertical size=120 cmd='python'<cr>",
   { desc = "Open Python terminal" }
 )
 vim.keymap.set(
   "n",
   "<leader>ci",
-  "<cmd>TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}ipython --TerminalInteractiveShell.autoindent=False'<cr>",
+  -- "<cmd>TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}ipython --TerminalInteractiveShell.autoindent=False'<cr>",
+  "<cmd>TermExec direction=vertical size=120 cmd='ipython --TerminalInteractiveShell.autoindent=False'<cr>",
   { desc = "Open IPython terminal" }
 )
 vim.keymap.set(
@@ -120,7 +124,8 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<leader>cP",
-  "<cmd>w<cr>:9TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}python %'<cr>",
+  -- "<cmd>w<cr>:9TermExec direction=vertical size=120 cmd='${VIRTUAL_ENV:+$VIRTUAL_ENV/bin/}python %'<cr>",
+  "<cmd>w<cr>:9TermExec direction=vertical size=120 cmd='python %'<cr>",
   { desc = "Save and run file in python" }
 )
 vim.keymap.set("n", "<leader>cc", "<cmd>ToggleTermSendCurrentLine<cr>j", { desc = "Send line to terminal" })
