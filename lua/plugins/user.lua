@@ -13,6 +13,17 @@ return {
     version = "*",
     config = true,
   },
+  {
+    's1n7ax/nvim-window-picker',
+    name = 'window-picker',
+    event = 'VeryLazy',
+    version = '2.*',
+    config = function()
+      require'window-picker'.setup({
+        hint = 'floating-big-letter',
+      })
+    end,
+  },
   -- { "wfxr/minimap.vim" },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -20,54 +31,55 @@ return {
       {
         "<leader>fe",
         function()
-          require("neo-tree.command").execute({ dir = vim.loop.cwd() })
+          require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd(), reveal = true })
         end,
         desc = "Explorer NeoTree (cwd)",
       },
       {
-        "<leader>e",
+        "<leader>fE",
         function()
           -- vim.api.nvim_set_current_dir(Util.root())
-          require("neo-tree.command").execute({ reveal_force_cwd = true })
-          require("neo-tree.command").execute({ dir = Util.root(), reveal = true })
+          require("neo-tree.command").execute({ toggle = true, dir = Util.root(), reveal = true })
         end,
         desc = "Explorer NeoTree (root dir)",
       },
-      {
-        "<leader>E",
-        function()
-          require("neo-tree.command").execute({ action = "close" })
-        end,
-        desc = "Close NeoTree",
-      },
-      {
-        "<leader>ge",
-        function()
-          require("neo-tree.command").execute({ source = "git_status", reveal_force_cwd = true })
-        end,
-        desc = "Git explorer",
-      },
-      {
-        "<leader>gE",
-        function()
-          require("neo-tree.command").execute({ source = "git_status", toggle = true, reveal_force_cwd = true })
-        end,
-        desc = "Toggle git explorer",
-      },
-      {
-        "<leader>be",
-        function()
-          require("neo-tree.command").execute({ source = "buffers", reveal_force_cwd = true })
-        end,
-        desc = "Buffer explorer",
-      },
-      {
-        "<leader>bE",
-        function()
-          require("neo-tree.command").execute({ source = "buffers", toggle = true, reveal_force_cwd = true })
-        end,
-        desc = "Toggle buffer explorer",
-      },
+      { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (cwd)", remap = true },
+      { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (root dir)", remap = true },
+    --   {
+    --     "<leader>E",
+    --     function()
+    --       require("neo-tree.command").execute({ action = "close" })
+    --     end,
+    --     desc = "Close NeoTree",
+    --   },
+    --   {
+    --     "<leader>ge",
+    --     function()
+    --       require("neo-tree.command").execute({ source = "git_status", reveal_force_cwd = true })
+    --     end,
+    --     desc = "Git explorer",
+    --   },
+    --   {
+    --     "<leader>gE",
+    --     function()
+    --       require("neo-tree.command").execute({ source = "git_status", toggle = true, reveal_force_cwd = true })
+    --     end,
+    --     desc = "Toggle git explorer",
+    --   },
+    --   {
+    --     "<leader>be",
+    --     function()
+    --       require("neo-tree.command").execute({ source = "buffers", reveal_force_cwd = true })
+    --     end,
+    --     desc = "Buffer explorer",
+    --   },
+    --   {
+    --     "<leader>bE",
+    --     function()
+    --       require("neo-tree.command").execute({ source = "buffers", toggle = true, reveal_force_cwd = true })
+    --     end,
+    --     desc = "Toggle buffer explorer",
+    --   },
     },
   },
   {

@@ -7,3 +7,5 @@ vim.opt.wrap = true
 vim.opt.undofile = true
 vim.opt.autowriteall = true
 vim.opt.swapfile = false
+vim.g.autoformat = false
+vim.g.root_spec = { "cwd" }  -- defined by LazyVim

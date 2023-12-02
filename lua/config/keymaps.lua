@@ -14,6 +14,10 @@ vim.keymap.set("n", "<leader>o", "o<esc>k", { desc = "Add en empty line below" }
 vim.keymap.set("n", "<leader>O", "O<esc>j", { desc = "Add en empty line above" })
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
+-- TELESCOPE
+vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Search help tags" })
+
+-- VIRTUAL ENV
 vim.keymap.set("n", "<leader>cV", "<cmd>VenvSelectCurrent<cr>", { desc = "Current VirtualEnv Info" })
 
 -- TMUX <-> VIM NAVIGATION
