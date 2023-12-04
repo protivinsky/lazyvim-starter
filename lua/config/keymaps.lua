@@ -27,6 +27,13 @@ vim.keymap.set("n", "<C-j>", tmux.move_bottom, {})
 vim.keymap.set("n", "<C-h>", tmux.move_left, {})
 vim.keymap.set("n", "<C-l>", tmux.move_right, {})
 
+-- DAP
+-- Custom user command to Clear All Breakpoints.
+vim.api.nvim_create_user_command("DapClearBreakpoints", function(_)
+  require"dap".clear_breakpoints()
+end, { })
+
+
 -- TOGGLETERM
 local toggleterm = require("toggleterm")
 
