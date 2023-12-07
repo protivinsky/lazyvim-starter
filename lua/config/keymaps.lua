@@ -20,6 +20,9 @@ vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Sear
 -- VIRTUAL ENV
 vim.keymap.set("n", "<leader>cV", "<cmd>VenvSelectCurrent<cr>", { desc = "Current VirtualEnv Info" })
 
+-- OVERSEER
+vim.keymap.set("n", "<leader>ta", "<cmd>OverseerRun<cr>", { desc = "Run task" })
+
 -- TMUX <-> VIM NAVIGATION
 local tmux = require("tmux")
 vim.keymap.set("n", "<C-k>", tmux.move_top, {})

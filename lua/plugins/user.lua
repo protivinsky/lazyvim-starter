@@ -24,6 +24,12 @@ return {
       })
     end,
   },
+  {
+    'stevearc/overseer.nvim',
+    opts = {
+      strategy = { "toggleterm", direction = "horizontal" },
+    },
+  },
   -- { "wfxr/minimap.vim" },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -108,6 +114,8 @@ return {
         lualine_a = opts.winbar.lualine_b,
         lualine_y = opts.winbar.lualine_y,
       }
+
+      table.insert(opts.sections.lualine_x, 1, "overseer")
     end,
   },
   { "github/copilot.vim" },
